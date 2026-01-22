@@ -73,6 +73,25 @@
             font-size: 14px;
             color: #777;
         }
+                /* 🎵 音乐按钮（手机不挡内容） */
+                #music-btn {
+            position: fixed;
+            right: 14px;
+            bottom: 14px;
+            padding: 9px 14px;
+            background: rgba(0,0,0,.65);
+            color: #fff;
+            font-size: 13px;
+            border-radius: 24px;
+            z-index: 999;
+        }
+        
+        /* 桌面端优化 */
+        @media (min-width: 768px) {
+            .header h1 { font-size: 28px; }
+            .content { font-size: 16px; padding: 36px 40px; }
+            .info-item { font-size: 15px; }
+        }
     </style>
 </head>
 <body>
@@ -110,6 +129,31 @@
     </div>
 
 </div>
+
+<!-- 🎵 背景音乐 -->
+<audio id="bgm" loop>
+    <source src="bgm.mp3" type="audio/mpeg">
+</audio>
+
+<div id="music-btn" onclick="toggleMusic()">🔊 开启音乐</div>
+
+<script>
+    const bgm = document.getElementById("bgm");
+    const btn = document.getElementById("music-btn");
+    let playing = false;
+
+    function toggleMusic() {
+        if (!playing) {
+            bgm.play();
+            btn.innerHTML = "🔇 关闭音乐";
+            playing = true;
+        } else {
+            bgm.pause();
+            btn.innerHTML = "🔊 开启音乐";
+            playing = false;
+        }
+    }
+</script>
 
 </body>
 </html>
