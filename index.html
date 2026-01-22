@@ -6,133 +6,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        
         body {
             margin: 0;
             padding: 0;
-            font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+                         "Microsoft YaHei", Arial, sans-serif;
             background: linear-gradient(135deg, #0b1f33, #1f3b57);
         }
+        
+        /* 主容器 */
         .container {
+            width: 100%;
             max-width: 760px;
-            margin: 40px auto;
-            background: #ffffff;
+            margin: 20px auto;
+            background: #fff;
             border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,.25);
         }
+        
+        /* 头部 */
         .header {
             background: linear-gradient(90deg, #0b2c4a, #1d4f7a);
-            color: #fff;
             text-align: center;
-            padding: 35px 20px;
+            padding: 28px 16px 30px;
+            color: #fff;
         }
-        .logo {
-            margin-bottom: 20px;
-        }
+        
         .logo img {
-            max-height: 80px;
+            max-width: 160px;
+            width: 60%;
+            height: auto;
+            margin-bottom: 16px;
         }
+        
         .header h1 {
             margin: 0;
-            font-size: 30px;
-            letter-spacing: 3px;
+            font-size: 22px;
+            letter-spacing: 2px;
         }
+        
         .header p {
-            margin-top: 10px;
-            font-size: 16px;
-            opacity: 0.9;
+            margin-top: 8px;
+            font-size: 14px;
+            opacity: .9;
         }
+        
+        /* 正文 */
         .content {
-            padding: 40px 35px;
-            line-height: 1.9;
-            font-size: 16px;
+            padding: 26px 20px 30px;
+            font-size: 15px;
+            line-height: 1.8;
             color: #333;
         }
+        
         .highlight {
-            font-weight: bold;
+            font-weight: 600;
             color: #0b2c4a;
         }
+        
+        /* 信息块 */
         .info-box {
-            margin-top: 30px;
-            padding: 22px;
+            margin-top: 22px;
+            padding: 18px 16px;
             background: #f2f6fa;
-            border-left: 6px solid #1d4f7a;
+            border-left: 5px solid #1d4f7a;
             border-radius: 8px;
         }
+        
         .info-item {
-            margin: 12px 0;
+            margin: 10px 0;
+            font-size: 14px;
         }
+        
+        /* 按钮 */
         .rsvp {
             text-align: center;
-            margin-top: 40px;
+            margin: 28px 0 10px;
         }
+        
         .rsvp a {
             display: inline-block;
-            padding: 16px 40px;
+            width: 100%;
+            max-width: 280px;
+            padding: 14px 0;
             background: linear-gradient(90deg, #c89b3c, #f0c75e);
             color: #000;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
-            border-radius: 40px;
+            border-radius: 30px;
             text-decoration: none;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
         }
-        .rsvp a:hover {
-            opacity: 0.9;
-        }
+        
+        /* 底部 */
         .footer {
             text-align: center;
-            padding: 28px 20px;
-            font-size: 14px;
+            padding: 18px;
+            font-size: 13px;
             color: #666;
             background: #f8fafc;
         }
-
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 22px;
-            }
-            .content {
-                padding: 30px 22px;
-                font-size: 15px;
-            }
-        }
-
+        
+        /* 🎵 音乐按钮（手机不挡内容） */
         #music-btn {
-    position: fixed;
-    right: 18px;
-    bottom: 18px;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 10px 16px;
-    border-radius: 30px;
-    font-size: 14px;
-    cursor: pointer;
-    z-index: 9999;
-    user-select: none;
-}
-
-    </style>
-</head>
-
-<script>
-    const bgm = document.getElementById('bgm');
-    const btn = document.getElementById('music-btn');
-    let playing = false;
-
-    function toggleMusic() {
-        if (!playing) {
-            bgm.play();
-            btn.innerHTML = "🔇 关闭音乐";
-            playing = true;
-        } else {
-            bgm.pause();
-            btn.innerHTML = "🔊 开启音乐";
-            playing = false;
+            position: fixed;
+            right: 14px;
+            bottom: 14px;
+            padding: 9px 14px;
+            background: rgba(0,0,0,.65);
+            color: #fff;
+            font-size: 13px;
+            border-radius: 24px;
+            z-index: 999;
         }
-    }
-</script>
-
+        
+        /* 桌面端优化 */
+        @media (min-width: 768px) {
+            .header h1 { font-size: 28px; }
+            .content { font-size: 16px; padding: 36px 40px; }
+            .info-item { font-size: 15px; }
+        }
+        </style>
+</head>
 <body>
 
 <div class="container">
@@ -192,21 +191,32 @@
 
 </div>
 
-<!-- 背景音乐 -->
+<!-- 🎵 背景音乐 -->
 <audio id="bgm" loop>
     <source src="bgm.mp3" type="audio/mpeg">
-    您的浏览器不支持音频播放
 </audio>
 
-<!-- 音乐控制按钮 -->
-<div id="music-btn" onclick="toggleMusic()">
-    🔊 开启音乐
-</div>
+<div id="music-btn" onclick="toggleMusic()">🔊 开启音乐</div>
 
+<script>
+    const bgm = document.getElementById("bgm");
+    const btn = document.getElementById("music-btn");
+    let playing = false;
+
+    function toggleMusic() {
+        if (!playing) {
+            bgm.play();
+            btn.innerHTML = "🔇 关闭音乐";
+            playing = true;
+        } else {
+            bgm.pause();
+            btn.innerHTML = "🔊 开启音乐";
+            playing = false;
+        }
+    }
+</script>
 
 </body>
-
-
 
 
 </html>
