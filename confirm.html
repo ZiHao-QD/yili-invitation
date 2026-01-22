@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <title>出席确认成功｜易立建筑工程开桩仪式</title>
@@ -16,6 +17,7 @@
             align-items: center;
             justify-content: center;
         }
+
         .card {
             max-width: 520px;
             width: 90%;
@@ -25,23 +27,27 @@
             padding: 50px 35px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
+
         .icon {
             font-size: 64px;
             color: #1d7a3f;
             margin-bottom: 20px;
         }
+
         h1 {
             margin: 0;
             font-size: 26px;
             color: #0b2c4a;
             letter-spacing: 2px;
         }
+
         p {
             margin-top: 18px;
             font-size: 16px;
             color: #444;
             line-height: 1.8;
         }
+
         .info {
             margin-top: 28px;
             padding: 20px;
@@ -50,9 +56,11 @@
             text-align: left;
             font-size: 15px;
         }
+
         .info div {
             margin: 8px 0;
         }
+
         .btn {
             display: inline-block;
             margin-top: 35px;
@@ -65,95 +73,109 @@
             text-decoration: none;
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
         }
+
         .btn:hover {
             opacity: 0.9;
         }
+
         .footer {
             margin-top: 28px;
             font-size: 14px;
             color: #777;
         }
-                /* 🎵 音乐按钮（手机不挡内容） */
-                #music-btn {
+
+        /* 🎵 音乐按钮（手机不挡内容） */
+        #music-btn {
             position: fixed;
             right: 14px;
             bottom: 14px;
             padding: 9px 14px;
-            background: rgba(0,0,0,.65);
+            background: rgba(0, 0, 0, .65);
             color: #fff;
             font-size: 13px;
             border-radius: 24px;
             z-index: 999;
         }
-        
+
         /* 桌面端优化 */
         @media (min-width: 768px) {
-            .header h1 { font-size: 28px; }
-            .content { font-size: 16px; padding: 36px 40px; }
-            .info-item { font-size: 15px; }
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .content {
+                font-size: 16px;
+                padding: 36px 40px;
+            }
+
+            .info-item {
+                font-size: 15px;
+            }
         }
     </style>
 </head>
+
 <body>
-<!-- 🎵 背景音乐 -->
-<audio id="bgm" loop>
-    <source src="bgm.mp3" type="audio/mpeg">
-</audio>
-<div class="card">
 
-    <div class="icon">✅</div>
+    <div class="card">
 
-    <h1>出席确认成功</h1>
+        <div class="icon">✅</div>
 
-    <p>
-        感谢您的确认！  
-        我们已收到您参加  
-        <strong>易立建筑工程开桩仪式</strong>  
-        的出席信息。
-    </p>
+        <h1>出席确认成功</h1>
 
-    <div class="info">
-        <div>📅 <strong>仪式时间：</strong> 2026年&nbsp;01月28日&nbsp;09时00分</div>
-        <div>📍 <strong>仪式地点： 几内亚科纳克里Kobaya项目桩基施工现场</strong></div>
-        <div>📞 <strong>联系人：</strong> <span><span>何卓林 613003937</span>
-            <span>杨茂雄 621064918</span></span>
+        <p>
+            感谢您的确认！
+            我们已收到您参加
+            <strong>易立建筑工程开桩仪式</strong>
+            的出席信息。
+        </p>
+
+        <div class="info">
+            <div>📅 <strong>仪式时间：</strong> 2026年&nbsp;01月28日&nbsp;09时00分</div>
+            <div>📍 <strong>仪式地点： 几内亚科纳克里Kobaya项目桩基施工现场</strong></div>
+            <div>📞 <strong>联系人：</strong>何卓林 613003937 | 杨茂雄 621064918</div>
+
+            
         </div>
+
+
+        <a class="btn" href="index.html">
+            返回邀请函
+        </a>
+
+        <div class="footer">
+            几内亚易立建筑工程有限公司<br>
+            Guinée Yili Construction SARL<br>
+            期待您的莅临
+        </div>
+
     </div>
-    
 
-    <a class="btn" href="index.html">
-        返回邀请函
-    </a>
+    <!-- 🎵 背景音乐 -->
+    <audio id="bgm" loop>
+        <source src="bgm.mp3" type="audio/mpeg">
+    </audio>
 
-    <div class="footer">
-        几内亚易立建筑工程有限公司<br>
-        Guinée  Yili Construction SARL<br>
-        期待您的莅临
-    </div>
+    <div id="music-btn" onclick="toggleMusic()">🔊 开启音乐</div>
 
-</div>
+    <script>
+        const bgm = document.getElementById("bgm");
+        const btn = document.getElementById("music-btn");
+        let playing = false;
 
-
-
-<div id="music-btn" onclick="toggleMusic()">🔊 开启音乐</div>
-
-<script>
-    const bgm = document.getElementById("bgm");
-    const btn = document.getElementById("music-btn");
-    let playing = false;
-
-    function toggleMusic() {
-        if (!playing) {
-            bgm.play();
-            btn.innerHTML = "🔇 关闭音乐";
-            playing = true;
-        } else {
-            bgm.pause();
-            btn.innerHTML = "🔊 开启音乐";
-            playing = false;
+        function toggleMusic() {
+            if (!playing) {
+                bgm.play();
+                btn.innerHTML = "🔇 关闭音乐";
+                playing = true;
+            } else {
+                bgm.pause();
+                btn.innerHTML = "🔊 开启音乐";
+                playing = false;
+            }
         }
-    }
-</script>
+    </script>
 
 </body>
+
 </html>
