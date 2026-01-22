@@ -97,8 +97,42 @@
                 font-size: 15px;
             }
         }
+
+        #music-btn {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 9999;
+    user-select: none;
+}
+
     </style>
 </head>
+
+<script>
+    const bgm = document.getElementById('bgm');
+    const btn = document.getElementById('music-btn');
+    let playing = false;
+
+    function toggleMusic() {
+        if (!playing) {
+            bgm.play();
+            btn.innerHTML = "🔇 关闭音乐";
+            playing = true;
+        } else {
+            bgm.pause();
+            btn.innerHTML = "🔊 开启音乐";
+            playing = false;
+        }
+    }
+</script>
+
 <body>
 
 <div class="container">
@@ -158,9 +192,21 @@
 
 </div>
 
+<!-- 背景音乐 -->
+<audio id="bgm" loop>
+    <source src="bgm.mp3" type="audio/mpeg">
+    您的浏览器不支持音频播放
+</audio>
+
+<!-- 音乐控制按钮 -->
+<div id="music-btn" onclick="toggleMusic()">
+    🔊 开启音乐
+</div>
+
+
 </body>
 
-<script>
 
-</script>
+
+
 </html>
